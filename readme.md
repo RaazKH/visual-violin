@@ -1,27 +1,38 @@
 # Visual Violin
 
-Visual Violin is a Python script that creates a video file with a spectrogram animation overlaid on top of a given video file. The script extracts the audio from the video file, creates a mel spectrogram from the audio, and then animates the spectrogram. The resulting animation is overlaid on top of the video file to create a new video with the spectrogram visualization.
+Visual Violin is a Python script that creates a mel spectrogram from an audio file and saves it as an image file. This can be useful for visualizing the frequency content of audio recordings, such as violin performances.
 
-## Requirements
+## Installation
 
-- Python 3.6 or higher
-- moviepy
-- librosa
-- matplotlib
-- numpy
+1. Install the required libraries using pip:
+
+    ```
+    pip install librosa opencv-python
+    ```
+
+2. Place your audio file in the same directory as the `visual_violin.py` script.
 
 ## Usage
 
-To use Visual Violin, follow these steps:
+1. Run the `visual_violin.py` script using Python:
 
-1. Install the required packages by running `pip3 install moviepy librosa matplotlib numpy`.
-2. Place your input video file in the same directory as the `visual_violin.py` script.
-3. Run the script by executing `python3 visual_violin.py`. The resulting video file will be saved as `output.mp4` in the same directory.
+    ```
+    python visual_violin.py
+    ```
 
-You can modify the input video file name and output video file name by editing the `video_file` and `output_file` variables in the script.
+2. The script will create a mel spectrogram from the audio file and save it as `spectrogram.png` in the same directory.
 
-## Notes
+## Customization
 
-- The script assumes that the input video file has an audio track.
-- The output video file will have the same length as the audio track in the input video file.
-- The script may take several minutes to run, depending on the length of the video and the performance of your computer.
+You can customize the parameters of the mel spectrogram by editing the `librosa.feature.melspectrogram` function in the `visual_violin.py` script. For example, you can adjust the number of mel frequency bands (`n_mels`), the frequency range (`fmin` and `fmax`), and the hop length (`hop_length`). You can also adjust the size and format of the output image by editing the `figsize` and `dpi` parameters in the `cv2.imwrite` function.
+
+## Dependencies
+
+Visual Violin requires the following Python libraries:
+
+- librosa
+- opencv-python
+
+## License
+
+This project is licensed under the MIT License. See the `LICENSE` file for details.
